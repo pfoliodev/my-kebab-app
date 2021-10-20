@@ -1,6 +1,17 @@
-.App{
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  position: relative;
+  background-color: #f2e9ce;
+}
+
+.App {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .MainContainer {
@@ -9,45 +20,54 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #F2E9CE;
 }
 
-.ContainerRight{
+.ContainerRight {
   display: flex;
   flex-direction: column;
-  background-color: #FFF;
+  background-color: #fff;
   width: 25%;
   font-weight: bold;
   font-size: 36px;
-  margin-top: 20px;
-  color: #4D0302;
+  padding-top: 20px;
+  color: #4d0302;
+  align-items: center;
 }
 
-.ContainerCard{
+.ContainerCard {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
   align-items: center;
+  font-size: 25px;
+  font-style: italic;
 }
 
-.Card{
+.Card {
+  justify-content: end;
   align-items: center;
-  border: #F2E9CE solid 2px;
+  border: #f2e9ce solid 2px;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  width: 200px;
+  width: 350px;
   font-weight: normal;
-  font-size: 20px;
+  font-style: italic;
+  font-size: 16px;
   margin-top: 10px;
   padding: 10px;
 }
 
-.CardTitle{
+.CardTitle {
   margin-right: 10px;
 }
 
-.ContainerList{
+.CardDelete {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.ContainerList {
   display: flex;
   margin-bottom: 20px;
   margin-top: 51px;
@@ -55,7 +75,8 @@
   font-size: 24px;
 }
 
-.KebabList{
+.KebabList {
+  font-style: italic;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -63,59 +84,139 @@
   width: 100px;
   height: 140px;
   border-radius: 3px;
-  border: solid black 2px;
+  border: solid #4d030229 2px;
   margin-right: 16px;
   justify-content: center;
-  align-items:center;
+  align-items: center;
+  color: #4d0302;
 }
 
-.MainTitle{
+.KebabList:hover {
+  border: solid 2px #4d0302;
+  transition: 1s;
+}
+
+.MainTitle {
+  font-style: italic;
   font-weight: bold;
   font-size: 36px;
   margin-top: 20px;
-  color: #4D0302;
+  color: #4d0302;
 }
 
-.btn_continue{
-  background: #4D0302;
+.btn_continue {
+  background: #4d0302;
   padding: 5px 10px 5px 10px;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   border-radius: 3px;
   margin-bottom: 20px;
-  cursor:pointer;
+  cursor: pointer;
 }
 
-.BtnOrder{
-  background: #4D0302;
+.BtnOrder {
+  background: #4d0302;
   padding: 5px 10px 5px 10px;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   border-radius: 3px;
   margin-bottom: 20px;
-  cursor:pointer;
+  cursor: pointer;
   text-align: center;
+  font-style: italic;
 }
 
-.BtnTerminerKebab{
-  background: #4D0302;
+.btnAction {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  height: 50px;
+  align-items: center;
+}
+
+.BtnTerminerKebab {
+  width: 200px;
+  margin-right: 20px;
+  background: #4d0302;
   padding: 5px 10px 5px 10px;
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   border-radius: 3px;
   margin-bottom: 20px;
-  cursor:pointer;
+  cursor: pointer;
   text-align: center;
+  bottom: -1px;
 }
 
-.PriceOrder{
+.BtnTerminerKebab:hover {
+  color: #4d0302;
+  background: #fff;
+  border: 1px solid #4d0302;
+  transition: 0.5s;
+}
+
+.BtnAnnulerKebab {
+  width: 200px;
+  background: #ff533d;
+  padding: 5px 10px 5px 10px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  cursor: pointer;
   text-align: center;
+  bottom: -1px;
 }
 
-.innactive{
-  border-color:#FFF;
+.BtnAnnulerKebab:hover {
+  color: #ff533d;
+  background: #fff;
+  border: 1px solid #ff533d;
+  transition: 0.5s;
 }
 
-.active{
-  border-color:#000;
+.PriceOrder {
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.removeQuantity,
+.addQuantity {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+}
+
+.quantity {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.removeQuantity {
+  background: #ff533d;
+}
+
+.addQuantity {
+  background: #8effbd;
+}
+
+.Finish {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.subTitle,
+.lastSubTitle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
