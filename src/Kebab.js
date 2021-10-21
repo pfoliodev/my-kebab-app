@@ -1,5 +1,5 @@
 const Kebab = ({ kebab, customKebab }) => {
-    const { name, image } = kebab;
+    const { name, image} = kebab;
     return (
       <div>
         <div className="KebabList" onClick={customKebab}>

@@ -5,6 +5,7 @@ import MainTitle from "./MainTitle";
 import KebabEnCours from "./KebabEnCours";
 import KebabRecap from "./KebabRecap";
 import KebabCheckout from "./KebabCheckout";
+import KebabSelection from "./KebabSelection";
 
 const mainTitle = {
   surroundBy: [
@@ -39,11 +40,11 @@ const kebab = {
   surroundBy: [
     {
       name: "Pain",
-      image: "assets/clipart-bread-flat-bread-2 1.png",
+      image: "assets/clipart-bread-flat-bread-2 1.png"
     },
     {
       name: "Galette",
-      image: "assets/galette.png",
+      image: "assets/galette.png"
     },
   ],
   meat: [
@@ -98,6 +99,30 @@ const kebab = {
   ],
 };
 
+
+const kebabSelection = {
+  selection: [
+    {
+      surroundBy: "Pain",
+      meat: "Lardon",
+      vegetable: "Oignon",
+      sauce: "Crème fraiche"
+    },
+    {
+      surroundBy: "Pain",
+      meat: "Boeuf",
+      vegetable: "Oignon",
+      sauce: "Sauce Tomate"
+    },
+    {
+      surroundBy: "Pain",
+      meat: "Moule",
+      vegetable: "Citron",
+      sauce: "Béarnaise"
+    }
+  ]
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -106,40 +131,43 @@ class App extends React.Component {
       kebabEnCours: [],
       checkout: [],
       position: 0,
-      countCheckout: 0,
+      countCheckout: 0
     };
     this.validKebab = this.validKebab.bind(this);
     this.remakeKebab = this.remakeKebab.bind(this);
     this.orderKebab = this.orderKebab.bind(this);
   }
   customKebab = (kebab) => () => {
-    let newElem = [...this.state.kebabEnCours];
-    newElem.push(kebab);
-    this.setState({ kebabEnCours: newElem });
+    let newElem = this.state.kebabEnCours
+      newElem.push(kebab);
+      this.setState({ kebabEnCours: newElem})
     if (this.state.position < 4) {
       this.setState({ position: this.state.position + 1 });
     }
   };
 
   deleteKebab = (index) => () => {
-    let newCheckout = [...this.state.checkout];
+    let newCheckout = this.state.checkout;
     let newCountCheckout = this.state.countCheckout;
     newCheckout.splice(index, 1);
     this.setState({ checkout: newCheckout });
     this.setState({ countCheckout: newCountCheckout - 1 });
-    console.log(this.state.countCheckout);
   };
 
+  selectionKebab = (kebabSelection) => () => {
+  }
+
   validKebab() {
-    let newCheckout = [...this.state.checkout];
-    let kebabEnCours = [...this.state.kebabEnCours];
+    let newCheckout = this.state.checkout;
+    let kebabEnCours = this.state.kebabEnCours;
     let newCountCheckout = this.state.countCheckout;
     newCheckout.push(kebabEnCours);
+    console.log(kebabEnCours)
     this.setState({ checkout: newCheckout });
     this.setState({ position: 0 });
     this.setState({ countCheckout: newCountCheckout + 1 });
     this.setState({ kebabEnCours: [] });
-    console.log(this.state.countCheckout);
+  
   }
 
   remakeKebab() {
@@ -152,12 +180,23 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state.countCheckout);
     return (
       <div className="App">
         <div className="MainContainer">
           <div className="ContainerMenu">
-            <img src="assets/logo.png"></img>
+            <img src="assets/logo.png" alt=""></img>
+          </div>
+
+          
+          <div className="ContainerKebabSelection">
+          {this.state.position === 0 ? <div className="MainTitle">Sélection du moment</div> : null}
+            <div className="DisplaySelection">
+            {this.state.position === 0
+                ? kebabSelection.selection.map((kebabSelection, index) => (
+                    <KebabSelection key={index} kebabSelection={kebabSelection} selectionKebab={this.selectionKebab(kebabSelection)}/>
+                  ))
+                : null}
+            </div>
           </div>
 
           <div className="MainTitle">
@@ -194,7 +233,7 @@ class App extends React.Component {
                 </div>
                 <div className="lastSubTitle">Patience...</div>
                 <div className="imgLast">
-                  <img src="assets/soso.png"></img>
+                  <img src="assets/soso.png" alt=""></img>
                 </div>
               </div>
             ) : null}
@@ -255,7 +294,7 @@ class App extends React.Component {
             ) : null}
           </div>
         </div>
-        {this.state.position != 5 ? (
+        {this.state.position !== 5 ? (
           <div className="ContainerRight">
             <div className="ContainerCard">
               <div>Kebab en cours</div>
@@ -270,7 +309,7 @@ class App extends React.Component {
               <div>Mon Panier</div>
               {this.state.checkout.map((kebabCheckout, index) => (
                 <KebabCheckout
-                  key={kebabCheckout.index}
+                  key={index}
                   kebabCheckout={kebabCheckout}
                   deleteKebab={this.deleteKebab(index)}
                 />

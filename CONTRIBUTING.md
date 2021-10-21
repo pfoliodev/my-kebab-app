@@ -28,10 +28,10 @@
 # DONE
 - Proposer le choix de la viande: viande ou tofu
 
-# CAN ONLY CHOOSE ONE OF THEM / Have to work arround in the customKebab methods
+# CAN ONLY CHOOSE ONE OF THEM / Work arround the customKebab method
 - Proposer d’ajouter de la salade et / ou des tomates et / ou des oignons
 
-# CAN ONLY CHOOSE ONE OF THEM / Have to work arround in the customKebab methods
+# CAN ONLY CHOOSE ONE OF THEM / Work arround the customKebab method
 - Proposer d’ajouter une ou deux sauces (mais pas trois) parmi une sélection de 6 sauces
 (au choix)
 
@@ -44,7 +44,7 @@
 # NOT DONE YET
 - L’utilisateur peut changer la quantité d’un kébab dans le panier
 
-# NOT DONE YET
+# NOT DONE YET / Work arround the selectionKebab method
 - Proposer quelques kébab tout fait (le classique = pain / viande / complet / blanche, le
 vege = pain / tofu / blanche, le bbq = pain / viande / complet / bbq)
 

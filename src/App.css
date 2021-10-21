@@ -32,6 +32,8 @@ body{
   padding-top: 20px;
   color: #4d0302;
   align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
 }
 
 .ContainerCard {
@@ -44,13 +46,13 @@ body{
 }
 
 .Card {
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   border: #f2e9ce solid 2px;
   border-radius: 5px;
   display: flex;
   flex-direction: row;
-  width: 350px;
+  width: 250px;
   font-weight: normal;
   font-style: italic;
   font-size: 16px;
@@ -59,7 +61,15 @@ body{
 }
 
 .CardTitle {
-  margin-right: 10px;
+  width:230px;
+  display: flex;
+  justify-content: center;
+}
+
+.CardImg{
+  width: 100px;
+  display: flex;
+  justify-content: left;
 }
 
 .CardDelete {
@@ -69,10 +79,20 @@ body{
 
 .ContainerList {
   display: flex;
-  margin-bottom: 20px;
-  margin-top: 51px;
+  margin-top: 10px;
   font-family: Roboto;
   font-size: 24px;
+}
+
+.ContainerKebabSelection{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.DisplaySelection{
+  display: flex;
+  flex-direction: row;
 }
 
 .KebabList {
@@ -89,6 +109,18 @@ body{
   justify-content: center;
   align-items: center;
   color: #4d0302;
+}
+
+.kebabSelection{
+  cursor: pointer;
+  border: solid #4d030229 2px !important;
+  margin: 10px;
+}
+
+.kebabSelection:hover{
+  border: solid 2px #4d0302!important;
+  margin: 10px;
+  transition: 1s;
 }
 
 .KebabList:hover {
@@ -219,4 +251,8 @@ body{
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 20px;
+}
+
+.active{
+  border: solid 2px #4d0302;
 }
